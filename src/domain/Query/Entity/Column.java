@@ -4,9 +4,11 @@ import org.json.simple.JSONObject;
 public class Column {
     private final SQLOperators sqlOperators;
     private final ColumnQueryService columnQueryService;
-    private String fieldName;
     private JSONArray fieldValue;
+    private String fieldName;
     private String operator;
+    private String joinTableName;
+    private boolean joinTable;
 
     public Column() {
         this.sqlOperators = new SQLOperators();
@@ -18,6 +20,14 @@ public class Column {
         this.fieldName = column.get("fieldName").toString();
         this.fieldValue = (JSONArray) column.get("fieldValue");
         this.operator = this.sqlOperators.translateSQLOperator(column.get("operator").toString().toUpperCase());
+
+        // Extended Functionalities - Join & Select
+        this.joinTableName = "";
+        this.joinTable = false;
+        if (this.sqlOperators.isJoinOperator(this.operator)) {
+            this.joinTable = true;
+            this.joinTableName = column.get("tableName").toString();
+        }
     }
 
     // GetColumnQuery returns the query to the current column
@@ -40,5 +50,13 @@ public class Column {
 
     public String getOperator() {
         return this.operator;
+    }
+
+    public String getJoinTableName() {
+        return this.joinTableName;
+    }
+
+    public boolean isJoinTable() {
+        return this.joinTable;
     }
 }

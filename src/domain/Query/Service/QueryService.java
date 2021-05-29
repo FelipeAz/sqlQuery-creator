@@ -24,10 +24,16 @@ public class QueryService {
         var iterator = columns.iterator();
         while (iterator.hasNext()) {
             columnObj.setColumnValues((JSONObject) iterator.next());
-            queryString.append(columnObj.getColumnQueryString())
-                    .append(iterator.hasNext() ? " AND " : "");
+            queryString.append(columnObj.getColumnQueryString()).append(iterator.hasNext() ? " AND " : " ");
         }
 
-        return queryString.toString();
+        JSONArray join = (JSONArray) this.jsonQuery.get("join");
+        iterator = join.iterator();
+        while (iterator.hasNext()) {
+            columnObj.setColumnValues((JSONObject) iterator.next());
+            queryString.append(columnObj.getColumnQueryString());
+        }
+
+        return queryString.toString().trim();
     }
 }

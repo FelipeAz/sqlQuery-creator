@@ -1,8 +1,11 @@
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 
 public class SQLOperators {
     private final Map<String, String> sqlOperators;
+    private final LinkedList<String> joinOperators;
     public SQLOperators() {
         this.sqlOperators = new HashMap<>() {
             {
@@ -16,6 +19,12 @@ public class SQLOperators {
                 put("LOWERTHANOREQUAL", "<=");
             }
         };
+
+        this.joinOperators = new LinkedList<String>(){
+            {
+                add("JOIN");
+            }
+        };
     }
 
     // translateSQLOperator translate an operator to the SQL syntax.
@@ -23,5 +32,10 @@ public class SQLOperators {
         String translatedOperator = this.sqlOperators.get(sqlOperator);
         if (translatedOperator == null) return sqlOperator;
         return translatedOperator;
+    }
+
+    // validate if the operator is a join operator
+    public boolean isJoinOperator(String sqlOperator) {
+        return this.joinOperators.contains(sqlOperator);
     }
 }

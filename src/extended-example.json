@@ -21,13 +21,24 @@
         "fieldValue":[
           "99999.99"
         ]
-      },
-      {
-        "operator":"Like",
-        "fieldName":"Name",
-        "fieldValue":[
-          "a"
-        ]
       }
-    ]
+  ],
+  "join": [
+    {
+      "tableName": "Table1",
+      "operator": "Join",
+      "fieldName": "t1.id",
+      "fieldValue": [
+        "foreignId"
+      ]
+    },
+    {
+      "tableName": "Table2",
+      "operator": "Join",
+      "fieldName": "t2.id",
+      "fieldValue": [
+        "otherForeignId"
+      ]
+    }
+  ]
 }
