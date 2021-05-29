@@ -1,5 +1,5 @@
 public class ColumnService {
-    private Column column;
+    private final Column column;
 
     public ColumnService(Column column) {
         this.column = column;

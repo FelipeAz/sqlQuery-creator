@@ -17,7 +17,7 @@ public class JsonReaderService {
     // GetContent returns the json content
     public JSONObject getContent() throws Exception {
         JSONParser parser = new JSONParser();
-        JSONObject jsonObject = new JSONObject();
+        JSONObject jsonObject;
         try (Reader reader = new FileReader(this.filePath)) {
             jsonObject = (JSONObject) parser.parse(reader);
         } catch (ParseException e) {

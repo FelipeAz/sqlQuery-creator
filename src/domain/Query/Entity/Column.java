@@ -33,7 +33,7 @@ public class Column {
 
     public String getFieldValue() {
         StringBuilder values = new StringBuilder();
-        Iterator iterator = this.fieldValue.iterator();
+        var iterator = this.fieldValue.iterator();
         while (iterator.hasNext()) {
             values.append(iterator.next()).append(" ");
         }
