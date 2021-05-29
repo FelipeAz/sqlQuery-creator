@@ -1,25 +1,18 @@
 {
   "columns":[
       {
-        "operator":"IN",
-        "fieldName":"column1",
+        "operator":"Between",
+        "fieldName":"Age",
         "fieldValue":[
-          "value"
+          "25",
+          "30"
         ]
       },
       {
         "operator":"Equal",
-        "fieldName":"column2",
+        "fieldName":"Role",
         "fieldValue":[
-          "value"
-        ]
-      },
-      {
-        "operator":"Between",
-        "fieldName":"column3",
-        "fieldValue":[
-          "value",
-          "value2"
+          "Software Engineer"
         ]
       }
     ]

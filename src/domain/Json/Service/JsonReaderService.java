@@ -21,7 +21,7 @@ public class JsonReaderService {
         try (Reader reader = new FileReader(this.filePath)) {
             jsonObject = (JSONObject) parser.parse(reader);
         } catch (ParseException e) {
-            e.printStackTrace();
+            throw new InvalidJsonFormat("invalid json format");
         }
         return jsonObject;
     }
