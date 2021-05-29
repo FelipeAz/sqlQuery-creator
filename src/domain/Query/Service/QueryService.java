@@ -1,6 +1,5 @@
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import java.util.Iterator;
 
 public class QueryService {
     private final JSONObject jsonQuery;
@@ -20,20 +19,25 @@ public class QueryService {
         StringBuilder queryString = new StringBuilder("SELECT FROM " + table + " WHERE ");
 
         JSONArray columns = (JSONArray) this.jsonQuery.get("columns");
-        Column columnObj = new Column();
-        var iterator = columns.iterator();
-        while (iterator.hasNext()) {
-            columnObj.setColumnValues((JSONObject) iterator.next());
-            queryString.append(columnObj.getColumnQueryString()).append(iterator.hasNext() ? " AND " : " ");
-        }
+        queryString.append(this.queryStringBuilder(columns,true));
 
         JSONArray join = (JSONArray) this.jsonQuery.get("join");
-        iterator = join.iterator();
-        while (iterator.hasNext()) {
-            columnObj.setColumnValues((JSONObject) iterator.next());
-            queryString.append(columnObj.getColumnQueryString());
+        if (join != null) {
+            queryString.append(" ");
+            queryString.append(this.queryStringBuilder(join, false));
         }
 
+        return queryString.toString().trim();
+    }
+
+    private String queryStringBuilder(JSONArray jsonArray, boolean appendText) {
+        Column columnObj = new Column();
+        StringBuilder queryString = new StringBuilder("");
+        var iterator = jsonArray.iterator();
+        while (iterator.hasNext()) {
+            columnObj.setColumnValues((JSONObject) iterator.next());
+            queryString.append(columnObj.getColumnQueryString()).append(appendText ? iterator.hasNext() ? " AND " : " " : "");
+        }
         return queryString.toString().trim();
     }
 }
