@@ -5,11 +5,10 @@ import java.util.Iterator;
 public class QueryService {
     private final JSONObject jsonQuery;
 
-    public QueryService(JSONObject jsonQuery) {
-        this.jsonQuery = jsonQuery;
+    public QueryService(JSONObject jsonQuery) throws Exception {
+        JsonQueryValidator jsonQueryValidator = new JsonQueryValidator(jsonQuery);
+        this.jsonQuery = jsonQueryValidator.validateAndReturnJsonQuery();
     }
-
-    /********* Validate Query Fields *********/
 
     // Returns the query to the user
     public String getQuery(String table) {

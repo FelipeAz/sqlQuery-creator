@@ -1,7 +1,7 @@
 import org.json.simple.JSONObject;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         try {
             JsonReaderService jsonReaderService = new JsonReaderService("src/query.json");
             JSONObject jsonContent = jsonReaderService.getContent();
