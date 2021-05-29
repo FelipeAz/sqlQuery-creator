@@ -3,7 +3,7 @@ import org.json.simple.JSONObject;
 public class Main {
     public static void main(String[] args) {
         try {
-            JsonReaderService jsonReaderService = new JsonReaderService("src/query.json");
+            JsonReaderService jsonReaderService = new JsonReaderService("src/example.json");
             JSONObject jsonContent = jsonReaderService.getContent();
 
             QueryService queryService = new QueryService(jsonContent);
