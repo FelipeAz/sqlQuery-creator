@@ -1,18 +1,16 @@
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import java.util.Iterator;
-
 public class Column {
     private final SQLOperators sqlOperators;
-    private final ColumnService columnService;
+    private final ColumnQueryService columnQueryService;
     private String fieldName;
     private JSONArray fieldValue;
     private String operator;
 
     public Column() {
         this.sqlOperators = new SQLOperators();
-        this.columnService = new ColumnService(this);
+        this.columnQueryService = new ColumnQueryService(this);
     }
 
     // SetColumnValues sets the column object values using the JSON reference
@@ -24,7 +22,7 @@ public class Column {
 
     // GetColumnQuery returns the query to the current column
     public String getColumnQueryString() {
-        return this.columnService.buildColumnQueryString();
+        return this.columnQueryService.buildColumnQueryString();
     }
 
     public String getFieldName() {

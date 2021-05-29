@@ -1,7 +1,7 @@
-public class ColumnService {
+public class ColumnQueryService {
     private final Column column;
 
-    public ColumnService(Column column) {
+    public ColumnQueryService(Column column) {
         this.column = column;
     }
 

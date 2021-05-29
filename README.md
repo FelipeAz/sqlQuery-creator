@@ -19,3 +19,42 @@ This project was built using Maven to manage the application dependencies. The d
 | Entity | Contains information about a domain item |
 | Exception | Represents domain's exceptions |
 | Main | The application main file |
+
+
+### JSON Example
+
+````
+{
+"columns":[
+    {
+        "operator":"Between",
+        "fieldName":"Age",
+        "fieldValue":[
+            "25",
+            "30"
+        ]
+    },
+    {
+        "operator":"Equal",
+        "fieldName":"Role",
+        "fieldValue":[
+            "Software Engineer"
+        ]
+    },
+    {
+        "operator":"GreaterThanOrEqual",
+        "fieldName":"Salary",
+        "fieldValue":[
+          "99999.99"
+        ]
+    },
+    {
+        "operator":"Like",
+        "fieldName":"Name",
+        "fieldValue":[
+            "a"
+        ]
+    }
+  ]
+}
+````
