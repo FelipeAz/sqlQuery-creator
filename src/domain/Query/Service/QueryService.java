@@ -11,16 +11,29 @@ public class QueryService {
 
     /********* Validate Query Fields *********/
 
+    // Returns the query to the user
+    public String getQuery(String table) {
+        Query query = this.buildQuery();
+        String queryString = "SELECT FROM " + table + " WHERE ";
+
+        Iterator iterator = query.getQueryString().iterator();
+        while (iterator.hasNext()) {
+            queryString += iterator.next() + (iterator.hasNext() ? " AND " : "");
+        }
+
+        return queryString;
+    }
+
     // Build Query maps the JSON Content on a Query Object
-    public Query BuildQuery() {
+    private Query buildQuery() {
         JSONArray columns = (JSONArray) this.jsonQuery.get("columns");
         Query queryObj = new Query();
-        ColumnQuery columnQueryObj = new ColumnQuery();
+        Column columnObj = new Column();
 
         Iterator iterator = columns.iterator();
         while (iterator.hasNext()) {
-            columnQueryObj.setColumnValues((JSONObject) iterator.next());
-            queryObj.AddQueryString(columnQueryObj.getColumnQueryString());
+            columnObj.setColumnValues((JSONObject) iterator.next());
+            queryObj.addQueryString(columnObj.getColumnQueryString());
         }
 
         return queryObj;

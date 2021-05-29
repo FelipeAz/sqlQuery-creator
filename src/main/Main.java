@@ -6,6 +6,6 @@ public class Main {
         JSONObject jsonContent = jsonReaderService.getContent();
 
         QueryService queryService = new QueryService(jsonContent);
-        Query query = queryService.BuildQuery();
+        System.out.printf("Query: %s", queryService.getQuery("Teste"));
     }
 }

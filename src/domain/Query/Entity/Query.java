@@ -8,8 +8,12 @@ public class Query {
         this.queryString = new LinkedList<>();
     }
 
-    // AddQueryString adds a query to the query queue
-    public void AddQueryString(String query) {
+    // adQueryString adds a query to the query queue
+    public void addQueryString(String query) {
         this.queryString.add(query);
+    }
+
+    public Queue<String> getQueryString() {
+        return queryString;
     }
 }
