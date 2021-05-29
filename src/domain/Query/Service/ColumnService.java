@@ -10,6 +10,7 @@ public class ColumnService {
         return switch (this.column.getOperator()) {
             case "IN", "NOT IN" -> this.getFieldNameAndOperator() + this.buildManyValuesStatement();
             case "BETWEEN" -> this.getFieldNameAndOperator() + " " + this.buildTwoValuesStatement();
+            case "LIKE" -> this.getFieldNameAndOperator() + " %" + this.buildOneValueStatement() + "%";
             default -> this.getFieldNameAndOperator() + " " + this.buildOneValueStatement();
         };
     }
