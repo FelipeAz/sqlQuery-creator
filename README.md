@@ -2,9 +2,9 @@
 
 sqlQuery-creator is a command line application which transforms a JSON file into a SQL Query. This project have been built using the concept of ``Domain`` from Domain Driven Design (DDD). A domain represents a ``context`` on the application and it's functionality is only related to it's context.
 
-### Dependencies
+``This application is built using JDK 16``
 
-JDK version 16+
+### Dependencies
 
 Maven is required to run this project. You can install it using the following command:
 
@@ -15,8 +15,6 @@ This project was built using Maven to manage the application dependencies. The d
 ### Instructions
 
 To run this application, make sure you have installed maven on your computer, if so, follow the commands bellow:
-
-``make install`` - install the application and download the dependencies using maven
 
 ``make run`` - initialize the application
 

@@ -12,7 +12,7 @@ public class Main {
         System.out.println("Press enter to confirm an action\n");
 
         try {
-            System.out.println("Specify the JSON file path: ex: src/example.json ");
+            System.out.println("Specify the JSON file path: ex: example.json ");
             Scanner sc = new Scanner(System.in);
             String filePath = sc.nextLine();
 
