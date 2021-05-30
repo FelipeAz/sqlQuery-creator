@@ -23,7 +23,6 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.6.0</version>
                 <configuration>
-                    <classpathScope>sqlQuery-creator</classpathScope>
                     <mainClass>app.main.Main</mainClass>
                 </configuration>
                 <executions>
