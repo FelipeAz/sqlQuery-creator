@@ -1,6 +1,6 @@
 # sqlQuery-creator
 
-sqlQuery-creator is a command line application which transforms a JSON file into a SQL Query.
+sqlQuery-creator is a command line application which transforms a JSON file into a SQL Query. This project have been built using the concept of ``Domain`` from Domain Driven Design (DDD). A domain represents a ``context`` on the application and it's functionality is only related to it's context.
 
 ### Dependencies
 
@@ -24,15 +24,15 @@ To run this application, make sure you have installed maven on your computer, if
 
 | Dir |Content|
 | --- | --- |
-| src2 | Application folder |
-| app.domain | Contains the application modules which were divided in two items: Json and Query  |
-| Json | Every action that is related to read the JSON file |
-| Query | Every action that is responsible to the Query Creation |
+| src | Application folder |
+| domain | Contains the application modules which were divided in two items: Json and Query  |
+| Json | Contains every action that is related to the JSON file |
+| Query | Contains every action that is responsible to the Query Creation |
 | Utils | Functions that can be util to the current module. |
-| Service | Contains the app.domain's logic.  |
-| Entity | Contains information about a app.domain item |
-| Exception | Represents app.domain's exceptions |
-| app.main.Main | The application main file |
+| Service | Contains the domain's logic.  |
+| Entity | Contains information about a domain item |
+| Exception | Represents domain's exceptions |
+| Main | Contains the application main file |
 
 
 ### JSON Example
