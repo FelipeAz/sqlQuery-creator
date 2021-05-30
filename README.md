@@ -4,6 +4,8 @@ sqlQuery-creator is a command line application which transforms a JSON file into
 
 ### Dependencies
 
+JDK version 16+
+
 Maven is required to run this project. You can install it using the following command:
 
 ``apt install maven``
