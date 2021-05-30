@@ -1,6 +1,6 @@
-package app.domain.json.validator;
+package src.app.domain.json.validator;
 
-import app.domain.json.exception.InvalidJsonFile;
+import src.app.domain.json.exception.InvalidJsonFile;
 
 import java.io.File;
 import java.io.FileNotFoundException;

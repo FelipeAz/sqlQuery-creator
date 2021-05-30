@@ -1,6 +1,6 @@
-package app.domain.query.service;
+package src.app.domain.query.service;
 
-import app.domain.query.entity.Column;
+import src.app.domain.query.entity.Column;
 
 public class ColumnQueryService {
     private final Column column;

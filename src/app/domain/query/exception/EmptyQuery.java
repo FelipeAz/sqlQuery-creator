@@ -1,4 +1,4 @@
-package app.domain.query.exception;
+package src.app.domain.query.exception;
 
 public class EmptyQuery extends Exception {
     public EmptyQuery(String message) {

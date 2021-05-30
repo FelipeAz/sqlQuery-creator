@@ -1,4 +1,4 @@
-package app.domain.query.entity;
+package src.app.domain.query.entity;
 
 import java.util.ArrayList;
 import java.util.HashMap;

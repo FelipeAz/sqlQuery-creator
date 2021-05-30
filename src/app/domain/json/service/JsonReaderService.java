@@ -1,8 +1,8 @@
-package app.domain.json.service;
+package src.app.domain.json.service;
 
-import app.domain.json.exception.InvalidJsonFile;
-import app.domain.json.exception.InvalidJsonFormat;
-import app.domain.json.validator.JsonFileValidator;
+import src.app.domain.json.exception.InvalidJsonFile;
+import src.app.domain.json.exception.InvalidJsonFormat;
+import src.app.domain.json.validator.JsonFileValidator;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;

@@ -1,4 +1,4 @@
-package app.domain.query.exception;
+package src.app.domain.query.exception;
 
 public class MissingRequiredField extends Exception {
     public MissingRequiredField(String message) {

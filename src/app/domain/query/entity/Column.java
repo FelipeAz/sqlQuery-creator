@@ -1,6 +1,6 @@
-package app.domain.query.entity;
+package src.app.domain.query.entity;
 
-import app.domain.query.service.ColumnQueryService;
+import src.app.domain.query.service.ColumnQueryService;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 

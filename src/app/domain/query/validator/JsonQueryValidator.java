@@ -1,7 +1,7 @@
-package app.domain.query.validator;
+package src.app.domain.query.validator;
 
-import app.domain.query.exception.EmptyQuery;
-import app.domain.query.exception.MissingRequiredField;
+import src.app.domain.query.exception.EmptyQuery;
+import src.app.domain.query.exception.MissingRequiredField;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 

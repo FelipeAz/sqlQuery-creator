@@ -1,7 +1,7 @@
-package app.main;
+package src.app.main;
 
-import app.domain.json.service.JsonReaderService;
-import app.domain.query.service.QueryService;
+import src.app.domain.json.service.JsonReaderService;
+import src.app.domain.query.service.QueryService;
 import org.json.simple.JSONObject;
 
 import java.util.Scanner;

@@ -23,7 +23,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.6.0</version>
                 <configuration>
-                    <mainClass>app.main.Main</mainClass>
+                    <mainClass>src.app.main.Main</mainClass>
                 </configuration>
                 <executions>
                     <execution>

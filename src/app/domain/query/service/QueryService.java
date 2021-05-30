@@ -1,7 +1,7 @@
-package app.domain.query.service;
+package src.app.domain.query.service;
 
-import app.domain.query.entity.Column;
-import app.domain.query.validator.JsonQueryValidator;
+import src.app.domain.query.entity.Column;
+import src.app.domain.query.validator.JsonQueryValidator;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
