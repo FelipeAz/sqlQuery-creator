@@ -8,7 +8,6 @@ public class Column {
     private String fieldName;
     private String operator;
     private String joinTableName;
-    private boolean joinTable;
 
     public Column() {
         this.sqlOperators = new SQLOperators();
@@ -23,9 +22,7 @@ public class Column {
 
         // Extended Functionalities - Join & Select
         this.joinTableName = "";
-        this.joinTable = false;
         if (this.sqlOperators.isJoinOperator(this.operator)) {
-            this.joinTable = true;
             this.joinTableName = column.get("tableName").toString();
         }
     }
@@ -54,9 +51,5 @@ public class Column {
 
     public String getJoinTableName() {
         return this.joinTableName;
-    }
-
-    public boolean isJoinTable() {
-        return this.joinTable;
     }
 }

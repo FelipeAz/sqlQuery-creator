@@ -30,13 +30,16 @@ public class QueryService {
         return queryString.toString().trim();
     }
 
-    private String queryStringBuilder(JSONArray jsonArray, boolean appendText) {
+    // Builds a query string from an iteration using the json column structure.
+    private String queryStringBuilder(JSONArray jsonArray, boolean appendTextAfterEachStatement) {
         Column columnObj = new Column();
         StringBuilder queryString = new StringBuilder("");
         var iterator = jsonArray.iterator();
         while (iterator.hasNext()) {
             columnObj.setColumnValues((JSONObject) iterator.next());
-            queryString.append(columnObj.getColumnQueryString()).append(appendText ? iterator.hasNext() ? " AND " : " " : "");
+            queryString.append(columnObj.getColumnQueryString()).append(
+                    appendTextAfterEachStatement ? (iterator.hasNext() ? " AND " : " ") : ""
+            );
         }
         return queryString.toString().trim();
     }

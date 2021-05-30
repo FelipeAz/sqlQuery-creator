@@ -27,17 +27,25 @@
     {
       "tableName": "Table1",
       "operator": "Join",
-      "fieldName": "t1.id",
+      "fieldName": "id",
       "fieldValue": [
-        "foreignId"
+        "Table.id"
       ]
     },
     {
       "tableName": "Table2",
-      "operator": "Join",
-      "fieldName": "t2.id",
+      "operator": "Inner Join",
+      "fieldName": "id",
       "fieldValue": [
-        "otherForeignId"
+        "Table1.id"
+      ]
+    },
+    {
+      "tableName": "Table3",
+      "operator": "Right Join",
+      "fieldName": "id",
+      "fieldValue": [
+        "Table2.id"
       ]
     }
   ]

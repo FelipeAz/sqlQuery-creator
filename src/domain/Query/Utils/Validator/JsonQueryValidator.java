@@ -11,8 +11,16 @@ public class JsonQueryValidator {
     // Returns an exception if JSON is not valid
     public JSONObject validateAndReturnJsonQuery() throws EmptyQuery, MissingRequiredField {
         JSONArray column = (JSONArray) this.jsonQuery.get("columns");
+        JSONArray join = (JSONArray) this.jsonQuery.get("join");
+
         if (emptyArrayField(column)) throw new EmptyQuery("empty query");
         if (missingField(column)) throw new MissingRequiredField("missing required field");
+
+        if (join != null) {
+            if (emptyArrayField(join)) throw new EmptyQuery("empty join query");
+            if (missingField(join)) throw new MissingRequiredField("missing join required field");
+        }
+
         return jsonQuery;
     }
 
@@ -25,9 +33,21 @@ public class JsonQueryValidator {
         while (iterator.hasNext()) {
             JSONObject field = (JSONObject) iterator.next();
             JSONArray fieldValue = (JSONArray) field.get("fieldValue");
-            if (field.get("fieldName") == null || field.get("operator") == null || emptyArrayField(fieldValue)) {
+
+            if (this.isJsonFieldEmpty(field, "fieldName")
+                || this.isJsonFieldEmpty(field, "operator")
+                || this.emptyArrayField(fieldValue)
+            ) {
                 return true;
             }
+        }
+        return false;
+    }
+
+    private boolean isJsonFieldEmpty(JSONObject field, String fieldName) {
+        Object fieldObj = field.get(fieldName);
+        if (fieldObj == null || fieldObj == "") {
+            return true;
         }
         return false;
     }

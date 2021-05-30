@@ -11,7 +11,8 @@ public class ColumnQueryService {
             case "IN", "NOT IN" -> this.getFieldNameAndOperator() + this.buildManyValuesStatement();
             case "BETWEEN" -> this.getFieldNameAndOperator() + " " + this.buildTwoValuesStatement();
             case "LIKE" -> this.getFieldNameAndOperator() + " %" + this.buildOneValueStatement() + "%";
-            case "JOIN" -> this.buildJoinStatement() + " ";
+            case "JOIN", "INNER JOIN", "OUTER JOIN", "LEFT JOIN", "RIGHT JOIN", "RIGHT EXCLUDING JOIN", "OUTER EXCLUDING JOIN"
+                    -> this.buildJoinStatement() + " ";
             default -> this.getFieldNameAndOperator() + " " + this.buildOneValueStatement();
         };
     }
@@ -35,6 +36,7 @@ public class ColumnQueryService {
 
     private String buildJoinStatement() {
         return this.column.getOperator() + " " + this.column.getJoinTableName() +
-                " ON " + this.column.getFieldName() + " = " + this.buildOneValueStatement();
+                " ON " + this.column.getJoinTableName() + "." + this.column.getFieldName() +
+                " = " + this.buildOneValueStatement();
     }
 }

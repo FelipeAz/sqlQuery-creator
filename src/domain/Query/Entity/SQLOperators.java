@@ -20,9 +20,15 @@ public class SQLOperators {
             }
         };
 
-        this.joinOperators = new LinkedList<String>(){
+        this.joinOperators = new LinkedList<>(){
             {
                 add("JOIN");
+                add("INNER JOIN");
+                add("OUTER JOIN");
+                add("LEFT JOIN");
+                add("RIGHT JOIN");
+                add("RIGHT EXCLUDING JOIN");
+                add("OUTER EXCLUDING JOIN");
             }
         };
     }
