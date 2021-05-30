@@ -14,11 +14,11 @@ public class JsonQueryValidator {
         JSONArray join = (JSONArray) this.jsonQuery.get("join");
 
         if (emptyArrayField(column)) throw new EmptyQuery("empty query");
-        if (missingField(column)) throw new MissingRequiredField("missing required field");
+        if (missingField(column, false)) throw new MissingRequiredField("missing required field");
 
         if (join != null) {
             if (emptyArrayField(join)) throw new EmptyQuery("empty join query");
-            if (missingField(join)) throw new MissingRequiredField("missing join required field");
+            if (missingField(join, true)) throw new MissingRequiredField("missing join required field");
         }
 
         return jsonQuery;
@@ -28,7 +28,7 @@ public class JsonQueryValidator {
          return fieldArray == null || fieldArray.size() == 0;
     }
 
-    private boolean missingField(JSONArray column) {
+    private boolean missingField(JSONArray column, boolean validateTableName) {
         var iterator = column.iterator();
         while (iterator.hasNext()) {
             JSONObject field = (JSONObject) iterator.next();
@@ -37,6 +37,7 @@ public class JsonQueryValidator {
             if (this.isJsonFieldEmpty(field, "fieldName")
                 || this.isJsonFieldEmpty(field, "operator")
                 || this.emptyArrayField(fieldValue)
+                || (validateTableName && this.isJsonFieldEmpty(field, "tableName"))
             ) {
                 return true;
             }
